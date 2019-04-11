@@ -6,5 +6,11 @@ export const sharedStyles = html `
         :host {
             display: block;
         }
+        *{
+            font-family: sans-serif;
+        }
+        #sidebar-wrapper{
+            background-color: #fc6617;
+        }
     </style>
 `

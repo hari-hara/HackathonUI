@@ -10,7 +10,7 @@ class ProductDetails extends PolymerElement{
     ready(){
         super.ready();
         let ajaxCall = this.$.ajax;
-        ajaxCall.url = "http://localhost:3000/productDetails/?id="+this.routeData.mainId;
+        ajaxCall.url = "http://10.117.189.87:8085/product/subgroupdetails/"+this.routeData.mainId;
         //ajaxCall.body = {"id": this.routeData.mainId, "sub_id": this.routeData.subId }
         ajaxCall.generateRequest();
         // let ajaxCallOther = this.$.ajax;
@@ -21,7 +21,7 @@ class ProductDetails extends PolymerElement{
     }
     _loadOtherProducts(){
         let ajaxOtherProduct = this.$.ajax;
-        ajaxOtherProduct.url = "http://localhost:3000/productDetails/?id="+this.routeData.mainId;
+        ajaxOtherProduct.url = "http://10.117.189.87:8085/product/subgroupdetails/"+this.routeData.mainId;
         //ajaxCall.body = {"id": this.routeData.mainId, "sub_id": this.routeData.subId }
         ajaxOtherProduct.generateRequest();
     }
@@ -68,18 +68,22 @@ class ProductDetails extends PolymerElement{
             debounce-duration="300">
         </iron-ajax>
         
-        <table border=1>
+        <table border="1" class="table">
             <tr>
-                <td>Name</td>
-                <td>Scheme Amount</td>
-                <td>Scheme Started</td>
+                <td>ID</td>
+                <td>Product Name</td>
+                <td>Duration</td>
+                <td>interest Rate</td>
+                <td>Percentage</td>
             </tr>
             <template is="dom-repeat" items=[[selectedProducts]]>
                 <tr>
-                    <template is="dom-repeat" items=[[item.details]]>
-                        <td>{{item.name}}</td>
-                        <td>{{item.scheme_acmount}}</td>
-                        <td>{{item.scheme_started}}</td>
+                    <template is="dom-repeat" items=[[item.subProductDetails]]>
+                        <td>{{item.subProductNameId}}</td>
+                        <td>{{item.subProductName}}</td>
+                        <td>{{item.subProductDuration}}</td>
+                        <td>{{item.subProductInterestRate}}</td>
+                        <td>{{item.subProductPercentage}}</td>
                     </template>
                     
                 </td>
@@ -89,8 +93,8 @@ class ProductDetails extends PolymerElement{
             <ul>
                 <template is="dom-repeat" items=[[otherProducts]] as="product">
                     <li>
-                        <template is="dom-repeat" items=[[product.details]]>
-                            <a href="#/details/[[product.id]]/[[product.sub_id]]">{{item.name}}</a>
+                        <template is="dom-repeat" items=[[product.subProductDetails]]>
+                            <a href="#/details/[[product.id]]/[[product.sub_id]]">{{item.subProductName}}</a>
                         </template>
                     </li>
                 </template>

@@ -32,18 +32,18 @@ class HackathonuiApp extends PolymerElement {
 
       
       <app-drawer-layout>
-        <app-drawer slot="drawer"  class="bg-light border-right" id="sidebar-wrapper">
-          <div class="sidebar-heading"><img  class="img-thumbnail" src="../images/logo.png" alt="Sample logo" style="max-width: 100px;" /></div>
+        <app-drawer slot="drawer"  class="bg-light border-right" id="sidebar-wrapper" style="background-color: #ff6200;">
+          <div class="sidebar-heading"><img  class="img-thumbnail" src="../images/logo/ing-direct.png" alt="Sample logo" /></div>
           <div class="list-group list-group-flush">
-            <a class="list-group-item list-group-item-action bg-light" href="#/overview">Overview</a>
-            <a class="list-group-item list-group-item-action bg-light" href="#/analytics">Analytics</a>
+            <a class="list-group-item list-group-item-action bg-light" style="background-color: #fc6617 !important; color: #fff;" href="#/overview">Overview</a>
+            <a class="list-group-item list-group-item-action bg-light" style="background-color: #fc6617 !important; color: #fff;" href="#/analytics">Analytics</a>
           </div>
         </app-drawer>
         <app-header-layout>
           <app-header slot="header">
             <app-toolbar>
               <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
-              <div main-title>Sample Application</div>
+              <div main-title>ING Application</div>
             </app-toolbar>
           </app-header>
 

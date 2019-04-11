@@ -2,27 +2,27 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 class productsOverview extends PolymerElement {
     constructor(){
         super();
-        this.data2 = [
+        this.data =  [
             { "id": 1, 
-              "title": "Sample Product 1", 
+              "title": "Sparen", 
               "subproducts": [
-                {"sub_id": 1, "productName":"First Group sub Product 1"},      
-                {"sub_id": 2, "productName":"First Group sub Product 2"},      
-                {"sub_id": 3, "productName":"First Group sub Product 3"}      
+                {"sub_id": 1, "productName":"Oranjespaarrekening"},      
+                {"sub_id": 2, "productName":"Groeigroterrekening"},      
+                {"sub_id": 3, "productName":"Spaarrekening voor Unicef"}      
               ] 
             },
             { "id": 2, 
-              "title": "Sample Product 2", 
+              "title": "Payments", 
               "subproducts": [
-                {"sub_id": 1, "productName":"Second Group sub Product 1"},      
-                {"sub_id": 2, "productName":"Second Group sub Product 2"},      
-                {"sub_id": 3, "productName":"Second Group sub Product 3"}      
+                {"sub_id": 1, "productName":"Betaalrekening"},      
+                {"sub_id": 2, "productName":"Aflossingvrij"},      
+                {"sub_id": 3, "productName":"Lineair"}      
               ] 
             },
             { "id": 3, 
-              "title": "Sample Product 3", 
+              "title": "SMortgage", 
               "subproducts": [
-                {"sub_id": 1, "productName":"Third Group sub Product 1"},      
+                {"sub_id": 1, "productName":"Bankspaarhypotheek"},      
                 {"sub_id": 2, "productName":"Third Group sub Product 2"},      
                 {"sub_id": 3, "productName":"Third Group sub Product 3"}      
               ] 
@@ -32,11 +32,12 @@ class productsOverview extends PolymerElement {
     ready(){
         super.ready();
         let ajaxCall = this.$.ajax;
+        ajaxCall.method="get";
         ajaxCall.url = "http://10.117.189.79:8085/product/groupdetails";
         ajaxCall.generateRequest();
     }
     handleResponse(event){
-        this.data = event.detail.response;
+        this.data2 = event.detail.response;
     }
     static get template(){
         return html `
@@ -50,7 +51,7 @@ class productsOverview extends PolymerElement {
         <vaadin-accordion>
             <template is="dom-repeat"  items="{{data}}" as="product">
             <vaadin-accordion-panel theme="filled"> 
-                <div slot="summary">{{product.title}} - {{product.subproducts.length}}</div>
+                <div slot="summary">{{product.title}} ({{product.subproducts.length}}) </div>
                 <template is="dom-repeat" items="{{product.subproducts}}">
                     <div><a href="#/details/[[product.id]]/[[item.sub_id]]">{{item.productName}}</a></div>
                 </template>  
