@@ -61,7 +61,7 @@ class HackathonuiApp extends PolymerElement {
 
           <iron-pages selected="[[page]]" attr-for-selected="name" selected-attribute="visible">
             <products-overview name="overview"></products-overview>
-            <product-details name="details"></product-details>
+            <product-details name="details" route={{subroute}}></product-details>
             <product-analytics name="analytics"></product-analytics>
           </iron-pages>
 
