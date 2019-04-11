@@ -50,7 +50,7 @@ class productsOverview extends PolymerElement {
         <vaadin-accordion>
             <template is="dom-repeat"  items="{{data}}" as="product">
             <vaadin-accordion-panel theme="filled"> 
-                <div slot="summary">{{product.title}}</div>
+                <div slot="summary">{{product.title}} - {{product.subproducts.length}}</div>
                 <template is="dom-repeat" items="{{product.subproducts}}">
                     <div><a href="#/details/[[product.id]]/[[item.sub_id]]">{{item.productName}}</a></div>
                 </template>  

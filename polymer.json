@@ -4,7 +4,7 @@
 	"sources": [
 		"src/*/*.*",
 		"package.json",
-		"images/**"
+		"images/**/*"
 	],
 	"extraDependencies": [
 		"manifest.json",
@@ -13,7 +13,7 @@
 	"npm": true,
 	"builds": [
 		{ 
-			"name": "es6prod",
+			"name": "ingdemo",
 			"preset": "es6-unbundled"
 		}
 	],

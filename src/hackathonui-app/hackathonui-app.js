@@ -45,7 +45,7 @@ class HackathonuiApp extends PolymerElement {
 
       <app-drawer-layout>
         <app-drawer slot="drawer"  class="bg-light border-right" id="sidebar-wrapper">
-          <div class="sidebar-heading"><img  class="img-thumbnail" src="../images/ing-direct.png" alt="Sample logo" /></div>
+          <div class="sidebar-heading"><img  class="img-thumbnail" src="../images/logo/ing-direct.png" alt="Sample logo" /></div>
           <div class="list-group list-group-flush">
             <a class="list-group-item list-group-item-action bg-light" href="#/overview">Overview</a>
             <a class="list-group-item list-group-item-action bg-light" href="#/analytics">Analytics</a>
