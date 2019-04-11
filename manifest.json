@@ -1,0 +1,7 @@
+{
+  "name": "hackathonui",
+  "short_name": "hackathonui",
+  "description": "hackathon app",
+  "start_url": "/",
+  "display": "standalone"
+}
