@@ -7,6 +7,7 @@
     "@polymer/iron-ajax": "^3.0.1",
     "@polymer/iron-pages": "^3.0.1",
     "@polymer/polymer": "^3.0.0",
+    "@polymer/paper-toast": "^3.0.1",
     "@vaadin/vaadin-accordion": "^1.0.0"
   },
   "devDependencies": {

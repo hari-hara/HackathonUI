@@ -5,6 +5,7 @@ import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/app-layout/app-layout.js';
 import '@polymer/iron-ajax/iron-ajax.js';
 import '@vaadin/vaadin-accordion/vaadin-accordion.js';
+import '@polymer/paper-toast/paper-toast.js';
 import { sharedStyles } from './shared-styles.js';
 /**
  * @customElement

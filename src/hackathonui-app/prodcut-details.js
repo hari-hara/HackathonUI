@@ -1,7 +1,7 @@
 import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
 import '@polymer/app-route/app-route.js';
 import '@polymer/iron-ajax/iron-ajax.js';
-
+import { sharedStyles } from './shared-styles.js';
 class ProductDetails extends PolymerElement{
     constructor(){
         super();
@@ -13,8 +13,8 @@ class ProductDetails extends PolymerElement{
     ready(){
         super.ready();
         let ajaxCall = this.$.ajax;
-        //ajaxCall.url = "http://10.117.189.87:8085/product/subgroupdetails/"+this.routeData.mainId+"/"+this.routeData.subId;
-        ajaxCall.url = config.baseURL+"/product/subgroupdetails/"+this.routeData.mainId+"/"+this.routeData.subId;
+        //ajaxCall.url = "http://10.117.189.87:8085/bank/subgroupdetails/"+this.routeData.mainId+"/"+this.routeData.subId;
+        ajaxCall.url = config.baseURL+"/bank/subgroupdetails/"+this.routeData.mainId+"/"+this.routeData.subId;
         //ajaxCall.body = {"id": this.routeData.mainId, "sub_id": this.routeData.subId }
         ajaxCall.generateRequest();
         // let ajaxCallOther = this.$.ajax;
@@ -26,7 +26,7 @@ class ProductDetails extends PolymerElement{
     _loadOtherProducts(){
         let ajaxOtherProduct = this.$.ajax;
         //ajaxOtherProduct.url = "http://10.117.189.87:8085/product/subgroupdetails/"+this.routeData.mainId+"/"+this.routeData.subId;
-        ajaxOtherProduct.url = config.baseURL+"/product/subgroupdetails/"+this.routeData.mainId+"/"+this.routeData.subId;
+        ajaxOtherProduct.url = config.baseURL+"/bank/subgroupdetails/"+this.routeData.mainId+"/"+this.routeData.subId;
         //ajaxCall.body = {"id": this.routeData.mainId, "sub_id": this.routeData.subId }
         ajaxOtherProduct.generateRequest();
     }
@@ -53,18 +53,24 @@ class ProductDetails extends PolymerElement{
     otherProduct(){
         return this.resData.sub_id !== this.routeData.subId
     }
+    handleError(event){
+        this.$.messageHandle.toggle();
+        this.toastMessage = "Failed to load Data";
+    }
+    
     static get template(){
         return html `
+        ${sharedStyles}
         <h2>[[pagetitle]]!</h2>
-
+        <paper-toast id="messageHandle" text="[[toastMessage]]" horizontal-align="center" vertical-align="middle"></paper-toast>
         <app-route
             route="{{route}}"
             pattern="/:mainId/:subId"
             data="{{routeData}}">
         </app-route>
       
-        {{routeData.mainId}} -- {{routeData.subId}}
-
+        Selected Group ID: {{routeData.mainId}} -- Selected Product ID: {{routeData.subId}}
+        
         <iron-ajax
             auto
             id="ajax"
@@ -73,7 +79,7 @@ class ProductDetails extends PolymerElement{
             debounce-duration="300">
         </iron-ajax>
         
-        <table border="1" class="table">
+        <table class="table table-striped">
             <tr>
                 <td>ID</td>
                 <td>Product Name</td>

@@ -15,8 +15,7 @@ class productsOverview extends PolymerElement {
               "title": "Payments", 
               "subproducts": [
                 {"sub_id": 1, "productName":"Betaalrekening"},      
-                {"sub_id": 2, "productName":"Aflossingvrij"},      
-                {"sub_id": 3, "productName":"Lineair"}      
+                {"sub_id": 2, "productName":"Aflossingvrij"}      
               ] 
             },
             { "id": 3, 
@@ -24,7 +23,8 @@ class productsOverview extends PolymerElement {
               "subproducts": [
                 {"sub_id": 1, "productName":"Bankspaarhypotheek"},      
                 {"sub_id": 2, "productName":"Lineair"},      
-                {"sub_id": 3, "productName":"Betaalrekening"}      
+                {"sub_id": 3, "productName":"Betaalrekening"},
+                {"sub_id": 3, "productName":"Lineair"}      
               ] 
             },
             { "id": 4, 
@@ -48,11 +48,11 @@ class productsOverview extends PolymerElement {
     }
     handleError(event){
         this.$.messageHandle.toggle();
-        this.toastMessage = "Failed to make transaction";
+        this.toastMessage = "Successfully Loaded";
     }
     static get template(){
         return html `
-
+        <paper-toast id="messageHandle" text="[[toastMessage]]" horizontal-align="center" vertical-align="middle"></paper-toast>
         <iron-ajax
             id="ajax"
             handle-as="json"

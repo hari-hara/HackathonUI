@@ -65,7 +65,7 @@ class ProductAnalytics extends PolymerElement{
 
             g.append("g")
             .call(d3.axisLeft(yScale).tickFormat(function(d){
-                return "$" + d;
+                return d;
             })
             .ticks(10))
             .append("text")
