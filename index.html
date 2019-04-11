@@ -12,6 +12,14 @@
     <script src="./config.js"></script>
     <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        // Delay registering until page load
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('service-worker.js');
+        });
+      }
+    </script>
     <script type="module" src="./src/hackathonui-app/hackathonui-app.js" crossorigin></script>
   </head>
   <body>

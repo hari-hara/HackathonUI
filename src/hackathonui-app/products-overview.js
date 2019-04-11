@@ -23,8 +23,8 @@ class productsOverview extends PolymerElement {
               "title": "SMortgage", 
               "subproducts": [
                 {"sub_id": 1, "productName":"Bankspaarhypotheek"},      
-                {"sub_id": 2, "productName":"Third Group sub Product 2"},      
-                {"sub_id": 3, "productName":"Third Group sub Product 3"}      
+                {"sub_id": 2, "productName":"Lineair"},      
+                {"sub_id": 3, "productName":"Betaalrekening"}      
               ] 
             },
             { "id": 4, 
@@ -46,6 +46,10 @@ class productsOverview extends PolymerElement {
     handleResponse(event){
         this.data2 = event.detail.response;
     }
+    handleError(event){
+        this.$.messageHandle.toggle();
+        this.toastMessage = "Failed to make transaction";
+    }
     static get template(){
         return html `
 
@@ -53,6 +57,7 @@ class productsOverview extends PolymerElement {
             id="ajax"
             handle-as="json"
             on-response="handleResponse"
+            on-error="handleError"
             debounce-duration="300">
         </iron-ajax>
         <vaadin-accordion>
