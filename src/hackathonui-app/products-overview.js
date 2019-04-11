@@ -33,7 +33,8 @@ class productsOverview extends PolymerElement {
         super.ready();
         let ajaxCall = this.$.ajax;
         ajaxCall.method="get";
-        ajaxCall.url = "http://10.117.189.79:8085/product/groupdetails";
+        //ajaxCall.url = "http://10.117.189.87:8085/product/subgroupdetails";
+        ajaxCall.url = config.baseURL+"/product/subgroupdetails";
         ajaxCall.generateRequest();
     }
     handleResponse(event){

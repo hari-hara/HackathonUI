@@ -3,14 +3,18 @@ import '@polymer/app-route/app-route.js';
 import '@polymer/iron-ajax/iron-ajax.js';
 
 class ProductDetails extends PolymerElement{
+    constructor(){
+        super();
+        
+    }
     connectedCallback(){
         super.connectedCallback();
-        
     }
     ready(){
         super.ready();
         let ajaxCall = this.$.ajax;
-        ajaxCall.url = "http://10.117.189.87:8085/product/subgroupdetails/"+this.routeData.mainId;
+        //ajaxCall.url = "http://10.117.189.87:8085/product/subgroupdetails/"+this.routeData.mainId+"/"+this.routeData.subId;
+        ajaxCall.url = config.baseURL+"/product/subgroupdetails/"+this.routeData.mainId+"/"+this.routeData.subId;
         //ajaxCall.body = {"id": this.routeData.mainId, "sub_id": this.routeData.subId }
         ajaxCall.generateRequest();
         // let ajaxCallOther = this.$.ajax;
@@ -21,7 +25,8 @@ class ProductDetails extends PolymerElement{
     }
     _loadOtherProducts(){
         let ajaxOtherProduct = this.$.ajax;
-        ajaxOtherProduct.url = "http://10.117.189.87:8085/product/subgroupdetails/"+this.routeData.mainId;
+        //ajaxOtherProduct.url = "http://10.117.189.87:8085/product/subgroupdetails/"+this.routeData.mainId+"/"+this.routeData.subId;
+        ajaxOtherProduct.url = config.baseURL+"/product/subgroupdetails/"+this.routeData.mainId+"/"+this.routeData.subId;
         //ajaxCall.body = {"id": this.routeData.mainId, "sub_id": this.routeData.subId }
         ajaxOtherProduct.generateRequest();
     }
@@ -50,7 +55,7 @@ class ProductDetails extends PolymerElement{
     }
     static get template(){
         return html `
-        <h2>Hello [[pagetitle]]!</h2>
+        <h2>[[pagetitle]]!</h2>
 
         <app-route
             route="{{route}}"

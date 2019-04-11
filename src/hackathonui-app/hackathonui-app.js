@@ -40,7 +40,7 @@ class HackathonuiApp extends PolymerElement {
           </div>
         </app-drawer>
         <app-header-layout>
-          <app-header slot="header">
+          <app-header slot="header" style="background-color: #fc6617 !important; color: #fff;">
             <app-toolbar>
               <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
               <div main-title>ING Application</div>
@@ -63,19 +63,6 @@ class HackathonuiApp extends PolymerElement {
       prop1: {
         type: String,
         value: 'Hackathon UI'
-      },
-      page:{
-        type: String,
-        reflectToAttribute: true,
-        observer: '_pageChanged'
-      }
-    };
-  }
-  static get properties() {
-    return {
-      prop1: {
-        type: String,
-        value: 'listdetailsproject-app'
       },
       page:{
         type: String,

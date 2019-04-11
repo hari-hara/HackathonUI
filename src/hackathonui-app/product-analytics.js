@@ -9,7 +9,7 @@ class ProductAnalytics extends PolymerElement{
     ready(){
         super.ready();
         let ajaxCall = this.$.ajax;
-        ajaxCall.url = "http://10.117.189.54:8085/product/groupCount";
+        ajaxCall.url = config.baseURL+"/product/groupCount";
         //ajaxCall.body = {"id": this.routeData.mainId, "sub_id": this.routeData.subId }
         ajaxCall.generateRequest();
 
@@ -17,10 +17,10 @@ class ProductAnalytics extends PolymerElement{
     }
     handleResponse(event){
         //this.data = event.detail.__data.response;
-        let data = event.detail.response.map((transaction) => {
+        let data = event.detail.response.map((transaction, index) => {
             return {
-                "groupName": event.detail.response.groupName,
-                "count": parseInt(event.detail.response.count)
+                "groupName": event.detail.response[index].groupName,
+                "count": parseInt(event.detail.response[index].count)
             }
         })
         var svg = d3.select(this.$.svgImage),
