@@ -3,7 +3,8 @@
 	"shell": "src/hackathonui-app/hackathonui-app.js",
 	"sources": [
 		"src/*/*.*",
-		"package.json"
+		"package.json",
+		"images/**"
 	],
 	"extraDependencies": [
 		"manifest.json",
