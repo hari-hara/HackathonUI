@@ -2,7 +2,7 @@ import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
 class productsOverview extends PolymerElement {
     constructor(){
         super();
-        this.data = [
+        this.data2 = [
             { "id": 1, 
               "title": "Sample Product 1", 
               "subproducts": [
@@ -32,7 +32,7 @@ class productsOverview extends PolymerElement {
     ready(){
         super.ready();
         let ajaxCall = this.$.ajax;
-        ajaxCall.url = "http://localhost:3000/products";
+        ajaxCall.url = "http://10.117.189.79:8085/product/groupdetails";
         ajaxCall.generateRequest();
     }
     handleResponse(event){
