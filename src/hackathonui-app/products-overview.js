@@ -26,6 +26,12 @@ class productsOverview extends PolymerElement {
                 {"sub_id": 2, "productName":"Third Group sub Product 2"},      
                 {"sub_id": 3, "productName":"Third Group sub Product 3"}      
               ] 
+            },
+            { "id": 4, 
+              "title": "ING Punten", 
+              "subproducts": [
+                {"sub_id": 1, "productName":"Loyalty Points"}    
+              ] 
             }
           ]
     }
